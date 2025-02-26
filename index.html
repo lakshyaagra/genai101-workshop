@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #e0f7e9; /* Light green background */
+            color: #2e7d32; /* Crocodile green text */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #2e7d32; /* Crocodile green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1b5e20; /* Darker green on hover */
+        }
+
+        #fact {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crocodile Facts</h1>
+    <button onclick="displayFact()">Show a Fact</button>
+    <div id="fact" class="fade-in"></div>
+
+    <script>
+        const facts = [
+            "Crocodiles are one of the oldest living species, having been around for about 200 million years.",
+            "They can hold their breath underwater for up to an hour.",
+            "Crocodiles have the strongest bite of any animal in the world.",
+            "They can live up to 70 years in the wild.",
+            "Crocodiles have a special valve in their throat that allows them to open their mouths underwater without drowning.",
+            "They can swim at speeds of up to 20 miles per hour.",
+            "Crocodiles are cold-blooded and rely on external heat sources to regulate their body temperature.",
+            "They have a four-chambered heart, which is more similar to birds and mammals than to other reptiles.",
+            "Crocodiles can replace each of their 80 teeth up to 50 times in their lifetime.",
+            "They communicate with each other through a variety of vocalizations, including growls, hisses, and roars."
+        ];
+
+        function displayFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factElement = document.getElementById('fact');
+            factElement.innerText = facts[randomIndex];
+            factElement.classList.remove('fade-in');
+            void factElement.offsetWidth; // Trigger reflow
+            factElement.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
